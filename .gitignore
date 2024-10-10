@@ -1,0 +1,5 @@
+# for executables
+*.exe
+*.out
+# for ide
+.vscode
