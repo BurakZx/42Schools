@@ -44,5 +44,5 @@ char	*ft_strtrim(const char *s1, const char *set)
 		if (!isdelim(*(s1 - 1), set))
 			*retstr++ = *(s1 - 1);
 	*retstr = '\0';
-	return (retadress);
+	return ((char*)retadress);
 }
