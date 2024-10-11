@@ -7,3 +7,5 @@
 *.o
 # for libraries
 *.a
+#for os files
+.DS_Store
