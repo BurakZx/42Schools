@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btarhan <btarhan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 22:32:43 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/10 22:32:43 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/11 18:01:53 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	char	*ret;
-	size_t	j;
+	char	*ret_str;
+	void	*ret_addr;
 
-	ret = (char *)malloc(len + 1);
-	if (!ret)
+	ret_str = (char *)malloc(len + 1);
+	if (!ret_str)
 		return (NULL);
+	ret_addr = ret_str;
 	str += start;
-	j = 0;
-	while (j < len && *str)
-		ret[j++] = *str++;
-	ret[j] = '\0';
-	return (ret);
+	while ((size_t)(ret_str - (char *)ret_addr) < len && *str)
+		*ret_str++ = *str++;
+	*ret_str = '\0';
+	return (ret_addr);
 }

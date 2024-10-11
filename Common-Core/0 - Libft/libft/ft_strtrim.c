@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btarhan <btarhan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 23:04:35 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/10 23:04:35 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/11 14:40:38 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ char	*ft_strtrim(const char *s1, const char *set)
 		if (!isdelim(*(s1 - 1), set))
 			*retstr++ = *(s1 - 1);
 	*retstr = '\0';
-	return ((char*)retadress);
+	return ((char *)retadress);
 }

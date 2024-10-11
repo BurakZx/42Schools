@@ -3,3 +3,7 @@
 *.out
 # for ide
 .vscode
+# for object files
+*.o
+# for libraries
+*.a

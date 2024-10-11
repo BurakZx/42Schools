@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btarhan <btarhan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:33:07 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/10 20:33:07 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/11 17:34:57 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s)
-		ft_putchar_fd(fd, *s++, 1);
+		ft_putchar_fd(*s++, fd);
 }

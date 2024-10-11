@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btarhan <btarhan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:03:14 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/08 15:03:14 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/11 14:15:35 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memcpy(void *dest, void *src, size_t len)
+void	*ft_memcpy(void *dest, void *src, size_t len)
 {
 	void	*ret;
 

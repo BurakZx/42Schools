@@ -3,25 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btarhan <btarhan@student.42istanbul.com    +#+  +:+       +#+        */
+/*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 22:46:43 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/10 22:46:43 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/11 18:03:05 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ret;
 
-	ret = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!ret)
-		return (NULL);
-	while (*s1)
-		*ret++ = *s1++;
-	while (*s2)
-		*ret++ = *s2++;
-	*ret = '\0';
+	ret = ft_strdup(s1);
+	(void)ft_strlcat(ret, s2, ft_strlen(ret) + ft_strlen(s2) + 1);
+	return (ret);
 }
