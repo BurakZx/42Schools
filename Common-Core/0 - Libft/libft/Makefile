@@ -6,75 +6,90 @@
 #    By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 20:37:32 by btarhan           #+#    #+#              #
-#    Updated: 2024/10/11 18:08:11 by btarhan          ###   ########.fr        #
+#    Updated: 2024/10/13 16:41:03 by btarhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 Library = libft
 
-FILES = ft_memset.c \
-		ft_bzero.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strlen.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strnstr.c \
-		ft_strncmp.c \
-		ft_atoi.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_toupper.c \
-		ft_tolower.c \
-		ft_calloc.c \
-		ft_strdup.c \
-		ft_substr.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_split.c \
-		ft_itoa.c \
-		ft_strmapi.c \
-		ft_putchar.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_striteri.c
-		
+FILES = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_atoi \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_calloc \
+		ft_strdup \
+		ft_putstr \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar \
+		ft_putchar_fd \
+		ft_putnbr \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
+		ft_striteri
 
-CFILES = $(FILES:.c=.c)
+BFILES = ft_lstadd_back \
+		 ft_lstadd_front \
+		 ft_lstclear \
+		 ft_lstdelone \
+		 ft_lstiter \
+		 ft_lstlast \
+		 ft_lstnew \
+		 ft_lstsize
 
-OFILES = $(FILES:.c=.o)
+SRC = $(FILES:=.c)
+
+OBJ = $(FILES:=.o)
+
+BSRC = $(BFILES:=.c)
+
+BOBJ = $(BFILES:=.o)
 
 CC = gcc
+
 CFLAGS = -Wall -Wextra -Werror
 
 OUTNAME = $(Library).a
 
 NAME = $(OUTNAME)
 
-$(NAME):
-		$(CC) $(CFLAGS) -c $(CFILES) -I./
-		ar -rc $(OUTNAME) $(OFILES)
+BONUS = $(OBJ) $(BOBJ)
 
-all: $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(BONUS):
-		$(CC) $(CFLAGS) -c $(CFILES) $(BCFILES)-I./
-		ar -rc $(OUTNAME) $(OFILES) $(BOFILES)
+$(NAME): $(OBJ)
+		ar -rc $(OUTNAME) $(OBJ)
+		
+all: $(NAME)		
 
 bonus: $(BONUS)
+		ar -rc $(OUTNAME) $(BOBJ)
 
 clean:
-		rm -f $(NAME)
-		rm -f $(OFILES) $(BOFILES)
+		rm -f *.o
 
 fclean: clean
 		rm -f $(NAME)
@@ -82,4 +97,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
-

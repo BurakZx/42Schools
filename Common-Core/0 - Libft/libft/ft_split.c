@@ -6,12 +6,11 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 00:32:54 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/11 14:15:02 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/13 16:46:00 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_includes(char c, const char *charset)
 {

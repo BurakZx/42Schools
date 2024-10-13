@@ -6,12 +6,11 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:41:41 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/11 15:56:14 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/13 16:44:20 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	*alloc_figures(int n)
 {
