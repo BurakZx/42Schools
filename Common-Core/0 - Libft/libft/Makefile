@@ -6,7 +6,7 @@
 #    By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 20:37:32 by btarhan           #+#    #+#              #
-#    Updated: 2024/10/13 16:41:03 by btarhan          ###   ########.fr        #
+#    Updated: 2024/10/13 18:03:35 by btarhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ BFILES = ft_lstadd_back \
 		 ft_lstiter \
 		 ft_lstlast \
 		 ft_lstnew \
-		 ft_lstsize
+		 ft_lstsize \
+		 ft_lstmap
 
 SRC = $(FILES:=.c)
 

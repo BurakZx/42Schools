@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 00:20:08 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/12 00:20:08 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/13 17:59:49 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!lst || !del)
 		return ;
-	tmp = *lst;
 	while (*lst)
 	{
 		tmp = *lst;
