@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 23:04:35 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/11 14:40:38 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:16:57 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,23 @@ static int	isdelim(char c, const char *delim)
 	return (0);
 }
 
-static int	totalnotdelim(const char *str, const char *delim)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-		if (!isdelim(*str++, delim))
-			count++;
-	return (count);
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*retstr;
-	void	*retadress;
+	size_t	start;
+	size_t	end;
 
-	retstr = (char *)malloc(totalnotdelim(s1, set) + 1);
+	start = 0;
+	while (isdelim(s1[start], set))
+		start++;
+	if (start == ft_strlen(s1))
+		return (ft_strdup(""));
+	end = ft_strlen(s1);
+	while (isdelim(s1[end - 1], set))
+		end--;
+	retstr = (char *)malloc((end - start) + 1);
 	if (!retstr)
 		return (NULL);
-	retadress = retstr;
-	while (*s1++)
-		if (!isdelim(*(s1 - 1), set))
-			*retstr++ = *(s1 - 1);
-	*retstr = '\0';
-	return ((char *)retadress);
+	(void)ft_strlcpy(retstr, &s1[start], end - start + 1);
+	return (retstr);
 }

@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 17:31:03 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/13 18:02:47 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/18 19:03:52 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		node = ft_lstnew(f(lst->content));
 		if (!node)
 		{
-			ft_lstclear(&node, (*del));
+			ft_lstclear(&new, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new, node);

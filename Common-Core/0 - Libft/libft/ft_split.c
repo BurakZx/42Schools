@@ -5,83 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 00:32:54 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/13 16:45:49 by btarhan          ###   ########.fr       */
+/*   Created: 2024/10/18 17:00:04 by btarhan           #+#    #+#             */
+/*   Updated: 2024/10/18 17:23:29 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_includes(char c, const char *charset)
-{
-	while (*charset)
-		if (c == *charset++)
-			return (1);
-	return (0);
-}
-
-static int	ft_countwords(const char *str, const char *charset)
+static int	ft_countwords(const char *str, char c)
 {
 	int	count;
 
 	count = 0;
 	while (*str)
 	{
-		while (ft_includes(*str, charset))
+		while (*str == c)
 			str++;
 		if (*str)
+		{
 			count++;
-		while (*str && !ft_includes(*str, charset))
-			str++;
+			while (*str && *str != c)
+				str++;
+		}
 	}
 	return (count);
 }
 
-static void	cpynextword(const char **str, char *dest, const char *charset)
+static void	cpynextword(const char **str, char *dest, char c)
 {
-	while (**str && ft_includes(**str, charset))
+	while (**str && **str == c)
 		(*str)++;
-	while (**str && !ft_includes(**str, charset))
+	while (**str && **str != c)
 		*dest++ = *(*str)++;
 	*dest = '\0';
 }
 
-static int	lenofnextword(const char *str, const char *charset)
+static int	lenofnextword(const char *str, char c)
 {
 	int	len;
 
 	len = 0;
-	while (ft_includes(*str, charset) && *str && *++str)
-		;
-	while (!ft_includes(*str, charset) && *str && *++str)
+	while (*str && *str == c)
+		str++;
+	while (*str && *str != c)
+	{
 		len++;
+		str++;
+	}
 	return (len + 1);
 }
 
-char	**ft_split(const char *str, const char *charset)
+static void	*freeall(char ***words_addr, int index)
+{
+	while (index > 0)
+		free((*words_addr)[--index]);
+	free(*words_addr);
+	return (NULL);
+}
+
+char	**ft_split(const char *str, char c)
 {
 	char	**words;
 	int		word_count;
-	int		strindex;
+	int		i;
 
-	strindex = 0;
-	word_count = ft_countwords(str, charset);
+	i = 0;
+	word_count = ft_countwords(str, c);
 	words = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!words)
 		return (NULL);
 	while (*str)
 	{
-		words[strindex] = (char *)malloc((lenofnextword(str, charset)));
-		if (!words[strindex])
+		while (*str == c)
+			str++;
+		if (*str)
 		{
-			while (strindex > 0)
-				free(words[--strindex]);
-			free(words);
-			return (NULL);
+			words[i] = (char *)malloc(lenofnextword(str, c));
+			if (!words[i])
+				return (freeall(&words, i));
+			cpynextword(&str, words[i++], c);
 		}
-		cpynextword(&str, words[strindex], charset);
-		strindex++;
 	}
-	words[strindex] = NULL;
+	words[i] = NULL;
 	return (words);
 }

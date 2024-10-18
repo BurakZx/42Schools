@@ -6,11 +6,11 @@
 #    By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 20:37:32 by btarhan           #+#    #+#              #
-#    Updated: 2024/10/13 18:03:35 by btarhan          ###   ########.fr        #
+#    Updated: 2024/10/18 12:47:05 by btarhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Library = libft
+NAME = libft.a
 
 FILES = ft_memset \
 		ft_bzero \
@@ -72,22 +72,18 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-OUTNAME = $(Library).a
-
-NAME = $(OUTNAME)
-
 BONUS = $(OBJ) $(BOBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-		ar -rc $(OUTNAME) $(OBJ)
+		ar -rc $(NAME) $(OBJ)
 		
 all: $(NAME)		
 
 bonus: $(BONUS)
-		ar -rc $(OUTNAME) $(BOBJ)
+		ar -rc $(NAME) $(BOBJ)
 
 clean:
 		rm -f *.o
