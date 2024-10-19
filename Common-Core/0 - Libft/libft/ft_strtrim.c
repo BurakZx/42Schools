@@ -6,13 +6,13 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 23:04:35 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/18 18:16:57 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/19 16:31:54 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	isdelim(char c, const char *delim)
+static unsigned char	isdelim(char c, const char *delim)
 {
 	while (*delim)
 		if (c == *delim++)
@@ -37,6 +37,6 @@ char	*ft_strtrim(const char *s1, const char *set)
 	retstr = (char *)malloc((end - start) + 1);
 	if (!retstr)
 		return (NULL);
-	(void)ft_strlcpy(retstr, &s1[start], end - start + 1);
+	(void)ft_strlcpy(retstr, &s1[start], (end - start) + 1);
 	return (retstr);
 }

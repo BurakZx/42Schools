@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:11:38 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/11 14:15:27 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/19 14:56:08 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*ft_memset(void *dest, int c, size_t len)
 
 	ret = dest;
 	while (len--)
-		*(char *)dest++ = (unsigned char)c;
+		*(unsigned char *)dest++ = (unsigned char)c;
 	return (ret);
 }

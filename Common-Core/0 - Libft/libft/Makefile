@@ -6,7 +6,7 @@
 #    By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 20:37:32 by btarhan           #+#    #+#              #
-#    Updated: 2024/10/18 12:47:05 by btarhan          ###   ########.fr        #
+#    Updated: 2024/10/19 17:56:44 by btarhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ CFLAGS = -Wall -Wextra -Werror
 BONUS = $(OBJ) $(BOBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 		ar -rc $(NAME) $(OBJ)

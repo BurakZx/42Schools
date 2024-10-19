@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 17:00:04 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/18 17:23:29 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/19 17:08:31 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static int	ft_countwords(const char *str, char c)
 
 static void	cpynextword(const char **str, char *dest, char c)
 {
-	while (**str && **str == c)
-		(*str)++;
 	while (**str && **str != c)
 		*dest++ = *(*str)++;
 	*dest = '\0';
@@ -45,13 +43,8 @@ static int	lenofnextword(const char *str, char c)
 	int	len;
 
 	len = 0;
-	while (*str && *str == c)
-		str++;
-	while (*str && *str != c)
-	{
+	while (*str && *str++ != c)
 		len++;
-		str++;
-	}
 	return (len + 1);
 }
 

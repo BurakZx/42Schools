@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 22:46:43 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/18 16:28:58 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/19 15:43:03 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ret = (char *)malloc(total_len);
 	if (!ret)
 		return (NULL);
-	ft_strlcpy(ret, s1, ft_strlen(s1) + 1);
-	ft_strlcat(ret, s2, total_len);
+	(void)ft_strlcpy(ret, s1, ft_strlen(s1) + 1);
+	(void)ft_strlcat(ret, s2, total_len);
 	return (ret);
 }

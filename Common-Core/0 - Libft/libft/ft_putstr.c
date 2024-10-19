@@ -6,7 +6,7 @@
 /*   By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 01:04:41 by btarhan           #+#    #+#             */
-/*   Updated: 2024/10/11 14:15:14 by btarhan          ###   ########.fr       */
+/*   Updated: 2024/10/19 14:58:49 by btarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putstr(char *str)
 {
-	while (str++)
-		ft_putchar(*str);
+	while (str)
+		ft_putchar(*str++);
 }
