@@ -6,7 +6,7 @@
 #    By: btarhan <btarhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 20:37:32 by btarhan           #+#    #+#              #
-#    Updated: 2024/10/20 17:13:21 by btarhan          ###   ########.fr        #
+#    Updated: 2024/10/25 16:59:53 by btarhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,13 @@ FILES = ft_memset \
 		ft_tolower \
 		ft_calloc \
 		ft_strdup \
-		ft_putstr \
 		ft_substr \
 		ft_strjoin \
 		ft_strtrim \
 		ft_split \
 		ft_itoa \
 		ft_strmapi \
-		ft_putchar \
 		ft_putchar_fd \
-		ft_putnbr \
 		ft_putstr_fd \
 		ft_putendl_fd \
 		ft_putnbr_fd \
@@ -60,11 +57,7 @@ BFILES = ft_lstadd_back \
 		 ft_lstsize \
 		 ft_lstmap
 
-SRC = $(FILES:=.c)
-
 OBJ = $(FILES:=.o)
-
-BSRC = $(BFILES:=.c)
 
 BOBJ = $(BFILES:=.o)
 
@@ -74,19 +67,21 @@ CFLAGS = -Wall -Wextra -Werror
 
 BONUS = $(OBJ) $(BOBJ)
 
-%.o: %.c
-		$(CC) $(CFLAGS) -c $< -o $@
-
 $(NAME): $(OBJ)
 		ar -rc $(NAME) $(OBJ)
-
-all: $(NAME)
 
 bonus: $(BONUS)
 		ar -rc $(NAME) $(BOBJ)
 
+all: $(NAME)
+
+$(OBJ) :
+		$(foreach file, $(FILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
+$(BOBJ) :
+		$(foreach file, $(BFILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
+
 clean:
-		rm -f *.o
+		rm -f $(OBJ) $(BOBJ)
 
 fclean: clean
 		rm -f $(NAME)
