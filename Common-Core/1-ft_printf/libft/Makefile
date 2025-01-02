@@ -75,16 +75,16 @@ bonus: $(BONUS)
 
 all: $(NAME)
 
-#$(OBJ) :
-#		$(foreach file, $(FILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
-#$(BOBJ) :
-#		$(foreach file, $(BFILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
+$(OBJ) :
+		$(foreach file, $(FILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
+$(BOBJ) :
+		$(foreach file, $(BFILES), $(CC) $(CFLAGS) -c $(file).c -o $(file).o;)
 
 clean:
-		del $(OBJ) $(BOBJ)
+		rm -f $(OBJ) $(BOBJ)
 
 fclean: clean
-		del $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
